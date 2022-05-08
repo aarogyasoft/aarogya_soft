@@ -1,0 +1,33 @@
+{% extends 'layout.html' %}
+{% load static %}
+
+{% block head %}
+    <title>View Data</title>
+{% endblock %}
+
+{% block body %}
+    Welcome to view data!<br><br>
+
+    <table border=3px>
+        <tr>
+            <th>User-ID</th>
+            <th>Comment</th>
+            <th>Email</th>
+            <th>Name</th>
+        </tr>
+        {% for id, user_data in users.items %}
+        <tr>
+            <td>{{ id }}</td>
+            {% for key, val in user_data.items %}
+                <td>{{ val }}</td>
+            {% comment %} <td>{{ user_data.items['name'] }}</td> {% endcomment %}
+            {% comment %} <td>{{ user_data.items['email'] }}</td> {% endcomment %}
+            {% comment %} <td>{{ user_data.items['comment'] }}</td> {% endcomment %}
+            {% endfor %}
+        </tr>
+        {% endfor %}
+    </table>
+        
+    <br><br>
+    <a href="{% url 'index' %}">Back to Home</a>
+{% endblock %}
