@@ -2,6 +2,7 @@ from django.shortcuts import render
 import pyrebase
 import json
 
+
 config = {
     "apiKey": "AIzaSyA0OFuqquMbPVMKqP5Ku-XL2FkYP_NZcD0",
     "authDomain": "aarogya-soft.firebaseapp.com",
@@ -18,24 +19,5 @@ cloud_db = firebase.database()
 
 
 
-def upload_data(request):
-    if request.method=='POST':
-        name = request.POST['name']
-        email = request.POST['email']
-        comment = request.POST['comment']
-        user_json_obj = {
-            "name": name,
-            "email": email,
-            "comment": comment
-        }
-        cloud_db.child("users").push(user_json_obj)
-    return(render(request, 'upload_data.html'))
-
-
-
-def view_data(request):
-    users = cloud_db.child('users').get().val()
-    contents = {
-        "users": users
-    }
-    return(render(request, 'view_data.html', contents))
+def doctor_dash(request):
+    return render(request, 'doctor_dash.html')
