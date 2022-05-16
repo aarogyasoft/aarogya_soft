@@ -7,27 +7,31 @@
 
 {% block body %}
     Welcome to Patient History!<br><br>
-
-    <table border=3px>
-        <tr>
-            <th>User-ID</th>
-            <th>Comment</th>
-            <th>Email</th>
-            <th>Name</th>
-        </tr>
-        {% for id, user_data in users.items %}
-        <tr>
-            <td>{{ id }}</td>
-            {% for key, val in user_data.items %}
-                <td>{{ val }}</td>
-            {% comment %} <td>{{ user_data.items['name'] }}</td> {% endcomment %}
-            {% comment %} <td>{{ user_data.items['email'] }}</td> {% endcomment %}
-            {% comment %} <td>{{ user_data.items['comment'] }}</td> {% endcomment %}
-            {% endfor %}
-        </tr>
-        {% endfor %}
-    </table>
-        
+    <form action="{% url 'view_patient_history' %}" method="post">
+        {% csrf_token %}
+        <div class="form-group">
+          <label for="patient_id">Patient Id</label>
+          <input type="text" class="form-control" id="patient_id" aria-describedby="nameHelp" placeholder="Enter patient-id" name="patient_id">
+          <!--<small id="nameHelp" class="form-text text-muted">Enter patient-id</small>-->
+        </div><br>
+        <!--<div class="form-group">
+            <label for="entry_date">Date</label>
+            <input type="date" class="form-control" id="entry_date" aria-describedby="emailHelp" placeholder="Enter today's date" name="date">
+            <small id="emailHelp" class="form-text text-muted">Please enter your email</small>
+        </div><br>
+        <div class="form-group">
+            <label for="disease_description">Disease Description</label>
+            <input type="text" class="form-control" id="disease_description" aria-describedby="commentHelp" placeholder="Enter disease description" name="disease_description">
+            <small id="commentHelp" class="form-text text-muted">Panchaat goes here...</small>
+        </div><br>
+        <div class="form-group">
+            <label for="prescription">Prescription</label>
+            <input type="text" class="form-control" id="prescription" aria-describedby="commentHelp" placeholder="Enter prescription" name="prescription">
+            <small id="commentHelp" class="form-text text-muted">Panchaat goes here...</small>
+        </div><br>-->
+        <button type="submit" class="btn btn-primary">Submit</button>
+    </form>
     <br><br>
-    <a href="{% url 'patient_dash' %}">Back to Patient Dashboard</a>
+    <a href="{% url 'doctor_dash' %}">Back to Doctor Dashboard</a>
 {% endblock %}
+

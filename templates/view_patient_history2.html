@@ -1,0 +1,37 @@
+{% extends 'layout.html' %}
+{% load static %}
+
+{% block head %}
+    <title>View Patient History</title>
+{% endblock %}
+
+{% block body %}
+    Welcome to Patient History!<br><br>
+
+        <table border=3px>
+            <tr>
+                <th>Date </th>
+                <th>Disease Description</th>
+                <th>Prescription</th>
+                <!--<th>Name</th>-->
+            </tr>
+            <!--{% for id in users.items %}
+                {% if id == patient_id %}-->
+                    {% for id,patient_data in data.items %}
+                    <tr>
+                        <td>{{ id }}</td>
+                        {% for key, val in patient_data.items %}
+                            <td>{{ val }}</td>
+                        {% comment %} <td>{{ patient_data.items['date'] }}</td> {% endcomment %}
+                        {% comment %} <td>{{ patient_data.items['disease_description'] }}</td> {% endcomment %}
+                        {% comment %} <td>{{ patient_data.items['prescription'] }}</td> {% endcomment %}
+                        {% endfor %}
+                    </tr>
+                    {% endfor %}
+                <!--{% endif %}
+            {% endfor %}-->
+        </table>
+    <br><br>
+    <a href="{% url 'doctor_dash' %}">Back to Doctor Dashboard</a>
+{% endblock %}
+
