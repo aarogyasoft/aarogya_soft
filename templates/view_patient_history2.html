@@ -15,9 +15,9 @@
                 <th>Prescription</th>
                 <!--<th>Name</th>-->
             </tr>
-            {% for id in users.items %}
-                {% if id == patient_id %}
-                    {% for id, patient_data in patient_id.items %}
+            <!--{% for id in users.items %}
+                {% if id == patient_id %}-->
+                    {% for id,patient_data in data.items %}
                     <tr>
                         <td>{{ id }}</td>
                         {% for key, val in patient_data.items %}
@@ -28,8 +28,8 @@
                         {% endfor %}
                     </tr>
                     {% endfor %}
-                {% endif %}
-            {% endfor %}
+                <!--{% endif %}
+            {% endfor %}-->
         </table>
     <br><br>
     <a href="{% url 'doctor_dash' %}">Back to Doctor Dashboard</a>

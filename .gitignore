@@ -1,1 +1,9 @@
 venv/
+my_env/
+.idea/
+aarogya_soft/__pycache__/
+doctor/__pycache__/
+index/__pycache__/
+patient/__pycache__/
+index/migrations/__pycache__/
+patient/migrations/__pycache__/

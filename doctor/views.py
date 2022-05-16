@@ -38,12 +38,14 @@ def update_patient_data(request):
     return(render(request, 'update_patient_data.html'))
 
 def view_patient_history(request):
-    users = cloud_db.child('users').get().val()
+#    users = cloud_db.child('users').child(patient_id)get().val()
     if request.method=='POST':
         patient_id = request.POST['patient_id']
+        data = cloud_db.child('users').child(patient_id).get().val()
         contents = {
-            "patient_id":patient_id,
-            "users": users
+            "data":data,
+            #"users": users
         }
+        print(data)
         return (render(request,'view_patient_history2.html',contents))
     return(render(request, 'view_patient_history.html'))
