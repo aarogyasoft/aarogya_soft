@@ -12,16 +12,16 @@
     {% csrf_token %}
     <div class="form-group">
         <label for="InputEmail1">Email address</label>
-        <input type="email" class="form-control" id="InputEmail" placeholder="Enter email" name="email">
+        <input type="email" class="form-control" id="InputEmail" placeholder="Enter email" name="email" style="width: 600px">
     </div><br>
     <div class="form-group">
         <label for="InputPassword">Email address</label>
-        <input type="password" class="form-control" id="InputPassword" placeholder="Enter password" name="password">
+        <input type="password" class="form-control" id="InputPassword" placeholder="Enter password" name="password" style="width: 600px">
     </div><br>
     <button type="submit" class="btn btn-primary">Submit</button>
 </form>
 
 {% comment %} <a href="{% url 'upload_data' %}">Upload data</a><br> {% endcomment %}
 {% comment %} <a href="{% url 'view_data' %}">View data</a><br><br> {% endcomment %}
-<a href="{% url 'index' %}">Back to Landing Page</a>
+<br><a href="{% url 'index' %}">Back to Landing Page</a>
 {% endblock %}
