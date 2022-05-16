@@ -24,15 +24,17 @@ def doctor_dash(request):
 
 def update_patient_data(request):
     if request.method=='POST':
-        name = request.POST['name']
-        email = request.POST['email']
-        comment = request.POST['comment']
+        patient_id = request.POST['name']
+        date = request.POST['date']
+        disease_description = request.POST['disease_description']
+        prescription = request.POST['prescription']
         user_json_obj = {
-            "name": name,
-            "email": email,
-            "comment": comment
+            "date": date,
+            "disease_description": disease_description,
+            "prescription": prescription
         }
-        cloud_db.child("users").push(user_json_obj)
+        #usersListRef = ref(cloud_db,'users/' + patient_id)
+        cloud_db.child("users/" + patient_id).push(user_json_obj)
     return(render(request, 'update_patient_data.html'))
 
 def view_patient_history(request):
