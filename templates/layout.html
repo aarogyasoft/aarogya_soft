@@ -6,18 +6,19 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link rel="stylesheet" href="{% static 'theme.css' %}">
     {% block head %}
     {% endblock %}
 </head>
 
 
-<body>
-    {% block body %}
-    {% endblock %}
-    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+<body background="https://lh3.googleusercontent.com/T6oRFnIGoSBRnb0_YRg32y893xM5VopyH1VRoanHHovOzv1cnPnMh70Z9TXzPFRNKbxpRNd2kYU4s9oGJcHxsUtDeJtUpIQ0pdp5RYHoJvRbVaTHXkCJSVKHCKQmJB3XHh4n6CGZBvcUxn258YLYyhMWV6WeRv0LGJejsRqXSTtsvVgi8wnwI-fG2AXfWzzLxG8IF14eQz6so2Y3diYtj8h9MJ6p3lQirG9awVxmjMWzgAd9bHB9wVeyxnLazTGZWIQrGqvg-nzTubpq00V_wbr8KyHNErsFGdAtDIR7dEoBBYlwwWo8yddIr4HHaBSyTwHeOUist2uXshbd99QgbSY-TTzNAIglYPzUs3P6mmhv9Goqyp2bMWEaDs_Gkwcu6RhkwR9y3UOVIIMZ3WTk4FN9CfpT14JFtLq-7o0Kmim5L7Gp_JfVR-KbMhlqJYgRkBd-aSAMs-aM8UrNaLjlaTst9GxHRLtMI2vwOd1zNUBwcz5sn4bWmpMUxYXta18XR04JHzOxDObVOsmNcrz52uk3Eu6t_t-30KMj3q5GXd1E20L9QC7UMDI0BwlQeoMTHe0uSts664m4NUB9T1zw-biFcKTGtGmxTS0PXeq554F374pQwAnqIGSLHMjpVcMtA_lXWpY4nu8-CanEp9sI6Dw5QDU952k67pVcl1-ukSf0JY6qpjqGKgUao9qwR1clQNiBYXwlKTNJZlBC7-zOOp0RbHho58eWWvxBKZ9RM3Y4amY=s94-no">
+    <font face="Calibri">
+        <center>
+        {% block body %}
+        {% endblock %}
+        </center>
+    </font>
 </body>
 
 </html>

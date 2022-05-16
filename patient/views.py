@@ -1,6 +1,6 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
+from urllib.error import HTTPError
 import pyrebase
-import json
 
 
 config = {
@@ -14,13 +14,29 @@ config = {
     "measurementId": "G-LXGTDZYRJN"
 }
 firebase = pyrebase.initialize_app(config)
-cloud_storage = firebase.storage()
-cloud_db = firebase.database()
-
+storage = firebase.storage()
+db = firebase.database()
+auth = firebase.auth()
 
 
 def patient_dash(request):
     return render(request, 'patient_dash.html')
+
+
+def patient_login(request):
+    if request.method=='GET':
+        return render(request, 'patient_login.html')
+    email = request.POST['email']
+    password = request.POST['password']
+    user_auth = ''
+    try:
+        user_auth = auth.create_user_with_email_and_password(email, password)
+    except:
+        print('Incorrect credentials!')
+        return redirect('patient_login')
+    print(user_auth)
+    return redirect('patient_dash')
+
 
 def upload_data(request):
     if request.method=='POST':
@@ -32,11 +48,11 @@ def upload_data(request):
             "email": email,
             "comment": comment
         }
-        cloud_db.child("users").push(user_json_obj)
+        db.child("users").push(user_json_obj)
     return(render(request, 'upload_data.html'))
 
 def view_data(request):
-    users = cloud_db.child('users').get().val()
+    users = db.child('users').get().val()
     contents = {
         "users": users
     }
