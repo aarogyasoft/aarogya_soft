@@ -21,3 +21,23 @@ cloud_db = firebase.database()
 
 def doctor_dash(request):
     return render(request, 'doctor_dash.html')
+
+def update_patient_data(request):
+    if request.method=='POST':
+        name = request.POST['name']
+        email = request.POST['email']
+        comment = request.POST['comment']
+        user_json_obj = {
+            "name": name,
+            "email": email,
+            "comment": comment
+        }
+        cloud_db.child("users").push(user_json_obj)
+    return(render(request, 'update_patient_data.html'))
+
+def view_patient_history(request):
+    users = cloud_db.child('users').get().val()
+    contents = {
+        "users": users
+    }
+    return(render(request, 'view_patient_history.html', contents))
