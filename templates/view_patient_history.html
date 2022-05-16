@@ -1,0 +1,37 @@
+{% extends 'layout.html' %}
+{% load static %}
+
+{% block head %}
+    <title>View Patient History</title>
+{% endblock %}
+
+{% block body %}
+    Welcome to Patient History!<br><br>
+    <form action="{% url 'view_patient_history' %}" method="post">
+        {% csrf_token %}
+        <div class="form-group">
+          <label for="patient_id">Patient Id</label>
+          <input type="text" class="form-control" id="patient_id" aria-describedby="nameHelp" placeholder="Enter patient-id" name="patient_id">
+          <!--<small id="nameHelp" class="form-text text-muted">Enter patient-id</small>-->
+        </div><br>
+        <!--<div class="form-group">
+            <label for="entry_date">Date</label>
+            <input type="date" class="form-control" id="entry_date" aria-describedby="emailHelp" placeholder="Enter today's date" name="date">
+            <small id="emailHelp" class="form-text text-muted">Please enter your email</small>
+        </div><br>
+        <div class="form-group">
+            <label for="disease_description">Disease Description</label>
+            <input type="text" class="form-control" id="disease_description" aria-describedby="commentHelp" placeholder="Enter disease description" name="disease_description">
+            <small id="commentHelp" class="form-text text-muted">Panchaat goes here...</small>
+        </div><br>
+        <div class="form-group">
+            <label for="prescription">Prescription</label>
+            <input type="text" class="form-control" id="prescription" aria-describedby="commentHelp" placeholder="Enter prescription" name="prescription">
+            <small id="commentHelp" class="form-text text-muted">Panchaat goes here...</small>
+        </div><br>-->
+        <button type="submit" class="btn btn-primary">Submit</button>
+    </form>
+    <br><br>
+    <a href="{% url 'doctor_dash' %}">Back to Doctor Dashboard</a>
+{% endblock %}
+

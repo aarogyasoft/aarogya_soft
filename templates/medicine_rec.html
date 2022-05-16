@@ -1,0 +1,28 @@
+{% extends 'layout.html' %}
+{% load static %}
+
+{% block head %}
+    <title>Emergency Medicine Recommender</title>
+{% endblock %}
+
+{% block body %}
+<h1>Emergency Medicine Recommender</h1>
+
+<form action="{% url 'medicine_rec' %}" method="post">
+    {% csrf_token %}
+    <div class="form-group">
+      <label for="symp1">Symptom1</label>
+      <input type="text" class="form-control" id="symp1" placeholder="Enter symptom" name="symp1">
+    </div><br>
+    <div class="form-group">
+      <label for="symp2">Symptom2</label>
+      <input type="text" class="form-control" id="symp2" placeholder="Enter symptom" name="symp2">
+    </div><br>
+    <button type="submit" class="btn btn-primary">Submit</button>
+</form>
+
+<br><br>Recommended drug as per the given symptoms:<br>
+<b>{{ medicine }}</b>
+
+<br><br><a href="{% url 'index' %}">Back to Landing Page</a>
+{% endblock %}
