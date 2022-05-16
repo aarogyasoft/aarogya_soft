@@ -1,0 +1,17 @@
+{% extends 'layout.html' %}
+{% load static %}
+
+{% block head %}
+    <title>Home</title>
+{% endblock %}
+
+{% block body %}
+<center>
+
+
+<b><br><br><h1>Landing Page</h1></b>
+<br><hr><a href="{% url 'patient_login' %}">Patient Dashboard</a><hr>
+<a href="{% url 'doctor_dash' %}">Doctor Dashboard</a><hr>
+<a href="{% url 'medicine_rec' %}">Emergency Medicine Recommendation</a><br><hr>
+</center>
+{% endblock %}
